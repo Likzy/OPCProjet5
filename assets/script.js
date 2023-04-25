@@ -38,7 +38,12 @@ arrow_right.addEventListener("click", function() {
 
 
 const dotsdiv = document.querySelector(".dots");
-for (let i = 0; i < (slides.length); i++) {
+const currentsliderdot = document.createElement("div");
+currentsliderdot.classList.add("dot");
+currentsliderdot.classList.add("dot_selected");
+dotsdiv.appendChild(currentsliderdot);
+
+for (let i = 0; i < (slides.length-1); i++) {
 	const sliderdots = document.createElement("div");
 	sliderdots.classList.add("dot");
 	dotsdiv.appendChild(sliderdots);
