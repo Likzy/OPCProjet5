@@ -55,6 +55,8 @@ for (let i = 0; i < (slides.length-1); i++) {
 
 arrow_right.addEventListener("click", function() {
 	if (position==0){
+		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position+1)].image)
+		document.getElementById("imagetagline").innerHTML=slides[(position+1)].tagLine
 		document.querySelector(".dots").innerHTML="";
 		const dotsdiv = document.querySelector(".dots");
 
@@ -77,6 +79,8 @@ arrow_right.addEventListener("click", function() {
 		};
 	};
 	if (position==1){
+		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position+1)].image)
+		document.getElementById("imagetagline").innerHTML=slides[(position+1)].tagLine
 		document.querySelector(".dots").innerHTML="";
 		const dotsdiv = document.querySelector(".dots");
 
@@ -101,6 +105,8 @@ arrow_right.addEventListener("click", function() {
 		
 	};
 	if (position==2){
+		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position+1)].image)
+		document.getElementById("imagetagline").innerHTML=slides[(position+1)].tagLine
 		document.querySelector(".dots").innerHTML="";
 		const dotsdiv = document.querySelector(".dots");
 
@@ -128,6 +134,8 @@ arrow_right.addEventListener("click", function() {
 	// (this loop is an exception because it goes back to position 0)
 
 	if (position==3){
+		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position-position)].image)
+		document.getElementById("imagetagline").innerHTML=slides[(position-position)].tagLine
 		document.querySelector(".dots").innerHTML="";
 		const dotsdiv = document.querySelector(".dots");
 		for (let i = 0; i < (position-position); i++) {
@@ -163,6 +171,8 @@ arrow_right.addEventListener("click", function() {
 
 arrow_left.addEventListener("click", function() {
 	if (position==0){
+		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position+3)].image)
+		document.getElementById("imagetagline").innerHTML=slides[(position+3)].tagLine
 		document.querySelector(".dots").innerHTML="";
 		const dotsdiv = document.querySelector(".dots");
 
@@ -187,6 +197,8 @@ arrow_left.addEventListener("click", function() {
 		
 	};
 	if (position==1){
+		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position-1)].image)
+		document.getElementById("imagetagline").innerHTML=slides[(position-1)].tagLine
 		document.querySelector(".dots").innerHTML="";
 		const dotsdiv = document.querySelector(".dots");
 
@@ -211,6 +223,8 @@ arrow_left.addEventListener("click", function() {
 		
 	};
 	if (position==2){
+		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position-1)].image)
+		document.getElementById("imagetagline").innerHTML=slides[(position-1)].tagLine
 		document.querySelector(".dots").innerHTML="";
 		const dotsdiv = document.querySelector(".dots");
 
@@ -234,6 +248,8 @@ arrow_left.addEventListener("click", function() {
 	
 	};
 	if (position==3){
+		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position-1)].image)
+		document.getElementById("imagetagline").innerHTML=slides[(position-1)].tagLine
 		document.querySelector(".dots").innerHTML="";
 		const dotsdiv = document.querySelector(".dots");
 
