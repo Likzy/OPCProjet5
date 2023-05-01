@@ -38,14 +38,14 @@ arrow_right.addEventListener("click", function() {
 var position = 0;
 
 const dotsdiv = document.querySelector(".dots");
-const currentsliderdot = document.createElement("div");
-currentsliderdot.classList.add("dot");
-currentsliderdot.classList.add("dot_selected");
-dotsdiv.appendChild(currentsliderdot);
 
-for (let i = 0; i < (slides.length-1); i++) {
+for (let i = 0; i < (slides.length); i++) {
 	const sliderdots = document.createElement("div");
 	sliderdots.classList.add("dot");
+	sliderdots.id = i
+	if (i == 0) {
+		sliderdots.classList.add("dot_selected");
+	}
 	dotsdiv.appendChild(sliderdots);
 
 };
@@ -54,230 +54,44 @@ for (let i = 0; i < (slides.length-1); i++) {
 
 
 arrow_right.addEventListener("click", function() {
-	if (position==0){
-		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position+1)].image)
-		document.getElementById("imagetagline").innerHTML=slides[(position+1)].tagLine
-		document.querySelector(".dots").innerHTML="";
-		const dotsdiv = document.querySelector(".dots");
-
-		for (let i = 0; i < (position+1); i++) {
-			const sliderdots = document.createElement("div");
-			sliderdots.classList.add("dot");
-			dotsdiv.appendChild(sliderdots);
-			
-		};
-		const currentsliderdot = document.createElement("div");
-		currentsliderdot.classList.add("dot");
-		currentsliderdot.classList.add("dot_selected");
-		dotsdiv.appendChild(currentsliderdot);
-
-		for (let i = 0; i < (slides.length-2); i++) {
-			const sliderdots = document.createElement("div");
-			sliderdots.classList.add("dot");
-			dotsdiv.appendChild(sliderdots);
-			
-		};
-	};
-	if (position==1){
-		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position+1)].image)
-		document.getElementById("imagetagline").innerHTML=slides[(position+1)].tagLine
-		document.querySelector(".dots").innerHTML="";
-		const dotsdiv = document.querySelector(".dots");
-
-		for (let i = 0; i < (position+1); i++) {
-			const sliderdots = document.createElement("div");
-			sliderdots.classList.add("dot");
-			dotsdiv.appendChild(sliderdots);
-			
-		};
-		const currentsliderdot = document.createElement("div");
-		currentsliderdot.classList.add("dot");
-		currentsliderdot.classList.add("dot_selected");
-		dotsdiv.appendChild(currentsliderdot);
-
-		for (let i = 0; i < (slides.length-3); i++) {
-			const sliderdots = document.createElement("div");
-			sliderdots.classList.add("dot");
-			dotsdiv.appendChild(sliderdots);
-			
-		};
-	
-		
-	};
-	if (position==2){
-		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position+1)].image)
-		document.getElementById("imagetagline").innerHTML=slides[(position+1)].tagLine
-		document.querySelector(".dots").innerHTML="";
-		const dotsdiv = document.querySelector(".dots");
-
-		for (let i = 0; i < (position+1); i++) {
-			const sliderdots = document.createElement("div");
-			sliderdots.classList.add("dot");
-			dotsdiv.appendChild(sliderdots);
-			
-		};
-		const currentsliderdot = document.createElement("div");
-		currentsliderdot.classList.add("dot");
-		currentsliderdot.classList.add("dot_selected");
-		dotsdiv.appendChild(currentsliderdot);
-
-		for (let i = 0; i < (slides.length-4); i++) {
-			const sliderdots = document.createElement("div");
-			sliderdots.classList.add("dot");
-			dotsdiv.appendChild(sliderdots);
-			
-		};
-	
-	};
-
-	// This is the last loop, if you add any images change the position==3 to your last number and add other if checks above this line
-	// (this loop is an exception because it goes back to position 0)
-
-	if (position==3){
-		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position-position)].image)
-		document.getElementById("imagetagline").innerHTML=slides[(position-position)].tagLine
-		document.querySelector(".dots").innerHTML="";
-		const dotsdiv = document.querySelector(".dots");
-		for (let i = 0; i < (position-position); i++) {
-			const sliderdots = document.createElement("div");
-			sliderdots.classList.add("dot");
-			dotsdiv.appendChild(sliderdots);
-			
-		};
-		const currentsliderdot = document.createElement("div");
-		currentsliderdot.classList.add("dot");
-		currentsliderdot.classList.add("dot_selected");
-		dotsdiv.appendChild(currentsliderdot);
-
-		for (let i = 0; i < (slides.length-1); i++) {
-			const sliderdots = document.createElement("div");
-			sliderdots.classList.add("dot");
-			dotsdiv.appendChild(sliderdots);
-
-		};
-		
-	};
 	console.log(position);
-	if (position==slides.length-1){
-		position = 0;
-	} 	else{
-		position++;
-			};
-	console.log(position);		
+	if (position==(slides.length-1)){
+		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(0)].image)
+		document.getElementById("imagetagline").innerHTML=slides[(0)].tagLine
+		document.querySelector(".dot_selected").classList.remove("dot_selected")
+		document.getElementById(0).classList.add("dot_selected")
+		position=0;
+		}
+	else{
+	document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position+1)].image)
+	document.getElementById("imagetagline").innerHTML=slides[(position+1)].tagLine
+	document.querySelector(".dot_selected").classList.remove("dot_selected")
+	document.getElementById(position+1).classList.add("dot_selected")
+	position++;
+		};
+	console.log(position);
 });
 
 
 
 
 arrow_left.addEventListener("click", function() {
-	if (position==0){
-		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position+3)].image)
-		document.getElementById("imagetagline").innerHTML=slides[(position+3)].tagLine
-		document.querySelector(".dots").innerHTML="";
-		const dotsdiv = document.querySelector(".dots");
-
-		for (let i = 0; i < (position+3); i++) {
-			const sliderdots = document.createElement("div");
-			sliderdots.classList.add("dot");
-			dotsdiv.appendChild(sliderdots);
-			
+	console.log(position);
+	if (position==(0)){
+		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(slides.length-1)].image)
+		document.getElementById("imagetagline").innerHTML=slides[(slides.length-1)].tagLine
+		document.querySelector(".dot_selected").classList.remove("dot_selected")
+		document.getElementById(slides.length-1).classList.add("dot_selected")
+		position=(slides.length-1);
+		}
+	else{
+	document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position-1)].image)
+	document.getElementById("imagetagline").innerHTML=slides[(position-1)].tagLine
+	document.querySelector(".dot_selected").classList.remove("dot_selected")
+	document.getElementById(position-1).classList.add("dot_selected")
+	position--;
 		};
-		const currentsliderdot = document.createElement("div");
-		currentsliderdot.classList.add("dot");
-		currentsliderdot.classList.add("dot_selected");
-		dotsdiv.appendChild(currentsliderdot);
-
-		for (let i = 0; i < (slides.length-4); i++) {
-			const sliderdots = document.createElement("div");
-			sliderdots.classList.add("dot");
-			dotsdiv.appendChild(sliderdots);
-			
-		};
-		position=0;
-		
-	};
-	if (position==1){
-		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position-1)].image)
-		document.getElementById("imagetagline").innerHTML=slides[(position-1)].tagLine
-		document.querySelector(".dots").innerHTML="";
-		const dotsdiv = document.querySelector(".dots");
-
-		for (let i = 0; i < (position-1); i++) {
-			const sliderdots = document.createElement("div");
-			sliderdots.classList.add("dot");
-			dotsdiv.appendChild(sliderdots);
-			
-		};
-		const currentsliderdot = document.createElement("div");
-		currentsliderdot.classList.add("dot");
-		currentsliderdot.classList.add("dot_selected");
-		dotsdiv.appendChild(currentsliderdot);
-
-		for (let i = 0; i < (slides.length-position); i++) {
-			const sliderdots = document.createElement("div");
-			sliderdots.classList.add("dot");
-			dotsdiv.appendChild(sliderdots);
-			
-		};
-	
-		
-	};
-	if (position==2){
-		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position-1)].image)
-		document.getElementById("imagetagline").innerHTML=slides[(position-1)].tagLine
-		document.querySelector(".dots").innerHTML="";
-		const dotsdiv = document.querySelector(".dots");
-
-		for (let i = 0; i < (position-1); i++) {
-			const sliderdots = document.createElement("div");
-			sliderdots.classList.add("dot");
-			dotsdiv.appendChild(sliderdots);
-			
-		};
-		const currentsliderdot = document.createElement("div");
-		currentsliderdot.classList.add("dot");
-		currentsliderdot.classList.add("dot_selected");
-		dotsdiv.appendChild(currentsliderdot);
-
-		for (let i = 0; i < (slides.length-position); i++) {
-			const sliderdots = document.createElement("div");
-			sliderdots.classList.add("dot");
-			dotsdiv.appendChild(sliderdots);
-			
-		};
-	
-	};
-	if (position==3){
-		document.querySelector(".banner-img").setAttribute('src','./assets/images/slideshow/'+slides[(position-1)].image)
-		document.getElementById("imagetagline").innerHTML=slides[(position-1)].tagLine
-		document.querySelector(".dots").innerHTML="";
-		const dotsdiv = document.querySelector(".dots");
-
-		for (let i = 0; i < (position-1); i++) {
-			const sliderdots = document.createElement("div");
-			sliderdots.classList.add("dot");
-			dotsdiv.appendChild(sliderdots);
-			
-		};
-		const currentsliderdot = document.createElement("div");
-		currentsliderdot.classList.add("dot");
-		currentsliderdot.classList.add("dot_selected");
-		dotsdiv.appendChild(currentsliderdot);
-
-		for (let i = 0; i < (slides.length-position); i++) {
-			const sliderdots = document.createElement("div");
-			sliderdots.classList.add("dot");
-			dotsdiv.appendChild(sliderdots);
-			
-		};
-	};
-	console.log(position);	
-	if (position==0){
-		position = 3;
-	} 	else{
-		position--;
-			};
-	console.log(position);	
+	console.log(position);
 });
 
 
